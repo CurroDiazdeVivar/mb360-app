@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MB360 App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app-container">
+    <header id="app-header">
+      <h1>MB360</h1>
+      <select id="session-selector">
+        <option value="general">General</option>
+        <option value="plus-ultra">PLUS ULTRA</option>
+        <option value="cliente-b">Cliente B</option>
+      </select>
+    </header>
+
+    <main id="main-content">
+      <div id="dashboard-view" class="view active">
+        <div id="crisis-banner" class="hidden">🚨 Crisis activa: Plus Ultra</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">Clientes activos: <span id="kpi-clients">3</span></div>
+          <div class="kpi-card">Alertas hoy: <span id="kpi-alerts">2</span></div>
+          <div class="kpi-card">Crises activas: <span id="kpi-crisis">1</span></div>
+        </div>
+        <h2>Últimas noticias</h2>
+        <div id="news-list"></div>
+      </div>
+
+      <div id="clients-view" class="view">
+        <h2>Clientes</h2>
+        <div id="clients-list"></div>
+      </div>
+
+      <div id="press-view" class="view">
+        <h2>Radar de Prensa</h2>
+        <input type="text" id="press-search" placeholder="Buscar...">
+        <select id="press-client-filter">
+          <option value="">Todos los clientes</option>
+        </select>
+        <div id="press-list"></div>
+      </div>
+
+      <div id="crisis-view" class="view">
+        <h2>Crisis</h2>
+        <div id="crisis-statement" class="hidden">
+          <h3>Holding Statement</h3>
+          <p id="statement-text">En Plus Ultra estamos al tanto de los recientes acontecimientos y estamos trabajando activamente para resolver la situación.</p>
+          <button id="copy-statement">Copiar</button>
+        </div>
+        <h3>Playbooks</h3>
+        <div id="playbooks-list"></div>
+      </div>
+
+      <div id="notes-view" class="view">
+        <h2>Notas</h2>
+        <form id="note-form">
+          <select id="note-client">
+            <option value="">Seleccionar cliente</option>
+          </select>
+          <input type="text" id="note-title" placeholder="Título" required>
+          <textarea id="note-content" placeholder="Nota..." required></textarea>
+          <button type="submit">Guardar</button>
+        </form>
+        <div id="saved-notes"></div>
+      </div>
+    </main>
+
+    <nav id="bottom-nav">
+      <button class="nav-button active" data-view="dashboard-view">🏠</button>
+      <button class="nav-button" data-view="clients-view">👥</button>
+      <button class="nav-button" data-view="press-view">📰</button>
+      <button class="nav-button" data-view="crisis-view">⚠️</button>
+      <button class="nav-button" data-view="notes-view">📝</button>
+    </nav>
+
+    <div id="demo-mode" class="hidden">Modo demo — abre en Telegram para la experiencia completa</div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
